@@ -14,6 +14,8 @@ public class Main {
         FoodItems[] foodItems = FoodItems.values();
         Tools[] tools = Tools.values();
         ToolUses[] toolUses = ToolUses.values();
+        MaterialItems[] materialItems = MaterialItems.values();
+        MunitionItems[] munitionItems = MunitionItems.values();
 
         System.out.print("How many items do you want: ");
         int itemCnt = Integer.parseInt(scan.nextLine());
@@ -38,6 +40,22 @@ public class Main {
                     String use = toolUses[toolIndex].toString();
                     Tool tmpTool = new Tool(toolName, toolPrice, toolQty, use);
                     items.add(tmpTool);
+                case 2:
+                    int materialIndex = ran.nextInt(materialItems.length);
+                    String materialName = materialItems[materialIndex].toString();
+                    float materialPrice = ran.nextFloat(5000);
+                    int materialQty = ran.nextInt(50);
+                    float strength = ran.nextInt(1000);
+                    Materials tmpMaterial = new Materials(materialName, materialPrice, materialQty, strength);
+                    items.add(tmpMaterial);
+                case 3:
+                    int munitionIndex = ran.nextInt(munitionItems.length);
+                    String munitionName = munitionItems[munitionIndex].toString();
+                    float munitionPrice = ran.nextFloat(5000);
+                    int munitionQty = ran.nextInt(2);
+                    float damage = ran.nextInt(1000);
+                    Munitions tmpMunition = new Munitions(munitionName, munitionPrice, munitionQty, damage);
+                    items.add(tmpMunition);
             }
         }
 
