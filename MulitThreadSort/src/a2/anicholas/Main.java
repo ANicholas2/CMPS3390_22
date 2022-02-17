@@ -12,7 +12,7 @@ public class Main {
         Scanner scan = new Scanner(System.in);
         Random ran = new Random();
 
-        System.out.println("Do you want a [S]ingle Sort or a [D]ual sort? ");
+        System.out.println("Do you want a [S]ingle sort, [D]ual sort, or a [Q]uad sort? ");
         char selection = scan.next().charAt(0);
 
         System.out.println("How many items do you want to sort? ");
@@ -48,7 +48,49 @@ public class Main {
             case 'd':
             case 'D':
                 DualSort(items);
+                break;
+            case 'q':
+            case 'Q':
+                QuadSort(items);
+                break;
         }
+    }
+
+    private static void QuadSort(Item[] items) throws InterruptedException {
+        int midp = Math.round(items.length / 2f);
+        int q1_q2 = Math.round(midp / 2f);
+        int q3_q4 = Math.round(midp + q1_q2);
+        ThreadSort th1 = new ThreadSort(items, 0, q1_q2);
+        ThreadSort th2 = new ThreadSort(items, q1_q2, midp);
+        ThreadSort th3 = new ThreadSort(items, midp, q3_q4);
+        ThreadSort th4 = new ThreadSort(items, q3_q4, items.length);
+
+        long startTime = System.nanoTime();
+        th1.start();
+        th2.start();
+        th3.start();
+        th4.start();
+
+        th1.join();
+        th2.join();
+        th3.join();
+        th4.join();
+
+        MergeSort m1 = new MergeSort(th1.gettItems(), th2.gettItems());
+        MergeSort m2 = new MergeSort(th3.gettItems(), th4.gettItems());
+
+        MergeSort mF = new MergeSort(m1.getSortedItems(), m2.getSortedItems());
+        mF.start();
+        mF.join();
+
+        long endTime = System.nanoTime();
+
+        long duration = (endTime - startTime) / 1000000;
+
+        for(Item i : mF.getSortedItems()) {
+            System.out.println(i);
+        }
+        System.out.println("Quad Sort took: " + duration);
     }
 
     private static void DualSort(Item[] items) throws InterruptedException {
@@ -69,8 +111,6 @@ public class Main {
         long endTime = System.nanoTime();
 
         long duration = (endTime - startTime) / 1000000;
-
-
 
         for(Item i : m1.getSortedItems()) {
             System.out.println(i);
