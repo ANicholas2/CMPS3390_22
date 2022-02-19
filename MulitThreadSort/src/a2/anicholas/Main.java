@@ -79,6 +79,11 @@ public class Main {
         MergeSort m1 = new MergeSort(th1.gettItems(), th2.gettItems());
         MergeSort m2 = new MergeSort(th3.gettItems(), th4.gettItems());
 
+        m1.start();
+        m2.start();
+        m1.join();
+        m2.join();
+
         MergeSort mF = new MergeSort(m1.getSortedItems(), m2.getSortedItems());
         mF.start();
         mF.join();
