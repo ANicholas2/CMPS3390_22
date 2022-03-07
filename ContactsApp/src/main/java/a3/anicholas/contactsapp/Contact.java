@@ -50,7 +50,7 @@ public class Contact {
     }
 
     @Override
-    public  String toString() {
+    public String toString() {
         return String.format("%-35s | %-35s | %-20s", this.lastName, this.firstName, this.phone);
     }
 }

@@ -16,11 +16,11 @@ public class MergeSort extends Thread {
     @Override
     public void run() {
         System.out.println("Merge Started");
-        int i=0; // Curr index of item1
-        int j=0; // Curr index of item2
-        int k=0; // Curr index of sortedItems
+        int i = 0; // Curr index of item1
+        int j = 0; // Curr index of item2
+        int k = 0; // Curr index of sortedItems
 
-        while(i < item1.length && j < item2.length) {
+        while (i < item1.length && j < item2.length) {
             if (this.item1[i].getPrice() < this.item2[j].getPrice()) {
                 this.sortedItems[k++] = this.item1[i++];
             } else {

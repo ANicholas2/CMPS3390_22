@@ -19,7 +19,7 @@ public class Main {
         System.out.print("How many items do you want: ");
         int itemCnt = Integer.parseInt(scan.nextLine());
 
-        for(int i = 0; i <itemCnt; i++) {
+        for (int i = 0; i < itemCnt; i++) {
             int type = ran.nextInt(2);
             switch (type) {
                 case 0 -> items.add(genFood());
@@ -29,7 +29,7 @@ public class Main {
             }
         }
 
-        for(Item i : items) {
+        for (Item i : items) {
             System.out.println(i);
         }
 

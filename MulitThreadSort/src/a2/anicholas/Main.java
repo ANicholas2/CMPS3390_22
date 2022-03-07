@@ -92,7 +92,7 @@ public class Main {
 
         long duration = (endTime - startTime) / 1000000;
 
-        for(Item i : mF.getSortedItems()) {
+        for (Item i : mF.getSortedItems()) {
             System.out.println(i);
         }
         System.out.println("Quad Sort took: " + duration);
@@ -117,13 +117,13 @@ public class Main {
 
         long duration = (endTime - startTime) / 1000000;
 
-        for(Item i : m1.getSortedItems()) {
+        for (Item i : m1.getSortedItems()) {
             System.out.println(i);
         }
         System.out.println("Dual Sort took: " + duration);
     }
 
-    private static void SingleSort(Item[] items){
+    private static void SingleSort(Item[] items) {
         // Sort b4 print
         ThreadSort single = new ThreadSort(items, 0, items.length);
         long startTime = System.nanoTime();

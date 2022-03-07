@@ -43,7 +43,7 @@ public class ListViewController {
 
     private void loadListFromJSON() {
         try (Scanner scanner = new Scanner(new File("contacts.json"))) {
-            while(scanner.hasNextLine()) {
+            while (scanner.hasNextLine()) {
                 String contactString = scanner.nextLine();
                 Contact tmp = new Contact(new JSONObject(contactString));
                 contacts.add(tmp);
@@ -56,10 +56,10 @@ public class ListViewController {
     @FXML
     public void shutdown() {
         System.out.println("Shutting Down...");
-        try(FileWriter file = new FileWriter("contacts.json")) {
-            for(int i=0; i<contacts.size(); i++) {
+        try (FileWriter file = new FileWriter("contacts.json")) {
+            for (int i = 0; i < contacts.size(); i++) {
                 file.write(contacts.get(i).getJSONString());
-                if(i != contacts.size() -1) {
+                if (i != contacts.size() - 1) {
                     file.write("\n");
                 }
             }
@@ -87,7 +87,7 @@ public class ListViewController {
     @FXML
     protected void onEditContact() {
         Contact selectedContact = contactsList.getSelectionModel().getSelectedItem();
-        if(selectedContact != null) {
+        if (selectedContact != null) {
             onNewContact();
             txtFirstName.setText(selectedContact.getFirstName());
             txtLastName.setText(selectedContact.getLastName());
@@ -118,7 +118,7 @@ public class ListViewController {
     @FXML
     protected void onDeleteContact() {
         Contact selectedContact = contactsList.getSelectionModel().getSelectedItem();
-        if(selectedContact != null) {
+        if (selectedContact != null) {
             contacts.remove(selectedContact);
         }
     }

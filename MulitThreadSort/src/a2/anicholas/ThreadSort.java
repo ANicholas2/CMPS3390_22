@@ -18,11 +18,11 @@ public class ThreadSort extends Thread {
         System.out.println("Thread Started");
         int n = this.tItems.length;
         Item tmp;
-        for(int i=0; i<n; i++) {
-            for(int j=1; j<n; j++) {
-                if(this.tItems[j-1].getPrice() > this.tItems[j].getPrice()) {
-                    tmp = this.tItems[j-1];
-                    this.tItems[j-1] = this.tItems[j];
+        for (int i = 0; i < n; i++) {
+            for (int j = 1; j < n; j++) {
+                if (this.tItems[j - 1].getPrice() > this.tItems[j].getPrice()) {
+                    tmp = this.tItems[j - 1];
+                    this.tItems[j - 1] = this.tItems[j];
                     this.tItems[j] = tmp;
                 }
             }
