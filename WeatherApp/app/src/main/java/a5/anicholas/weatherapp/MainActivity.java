@@ -21,7 +21,7 @@ import com.android.volley.toolbox.Volley;
 public class MainActivity extends AppCompatActivity implements UIBind {
     private Spinner spinnerLocations;
     private TextView txtLatitude, txtLongitude, txtHigh, txtLow, txtCurrent, txtFeelsLike,
-        txtPressure, txtHumidity, txtWeatherDescription, txtWindSpeed;
+            txtPressure, txtHumidity, txtWeatherDescription, txtWindSpeed;
     private APIBridge apiBridge;
     NetworkImageView imgWeatherIcon;
     ImageView imgWindDir;
@@ -91,4 +91,5 @@ public class MainActivity extends AppCompatActivity implements UIBind {
         txtWeatherDescription.setText(weatherModel.getWeatherDescription());
         txtWindSpeed.setText(weatherModel.getWindDirection());
         imgWindDir.setRotation(weatherModel.getWindDirection());
+    }
 }
