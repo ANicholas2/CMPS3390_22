@@ -89,7 +89,7 @@ public class MainActivity extends AppCompatActivity implements UIBind {
         txtHumidity.setText(String.format("%d%%", weatherModel.getHumidity()));
         imgWeatherIcon.setImageUrl(weatherModel.getWeatherIcon(), this.imageLoader);
         txtWeatherDescription.setText(weatherModel.getWeatherDescription());
-        txtWindSpeed.setText(weatherModel.getWindDirection());
+        txtWindSpeed.setText(weatherModel.getWindSpeed()+"MPH");
         imgWindDir.setRotation(weatherModel.getWindDirection());
     }
 }
