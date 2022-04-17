@@ -24,7 +24,7 @@
 }
 
 .list-cell:even {
-    -fx-background-color: #323232;
+    -fx-background-color: #E8A984;
 }
 
 .list-cell:odd {
