@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<VBox alignment="CENTER" spacing="20.0" styleClass="vbox" stylesheets="@Pizza.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="afpfx.anicholas.finalprojectfx.LoginController">
+    <padding>
+        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+    </padding>
+   <children>
+      <Label stylesheets="@Pizza.css" text="PizzaPoints® Reward System" textFill="WHITE">
+         <font>
+            <Font name="Bebas Neue Regular" size="24.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="75.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@pizza.png" />
+         </image>
+      </ImageView>
+       <TextField fx:id="txtUserName" onAction="#onLoginClicked" promptText="User Name" stylesheets="@Pizza.css" />
+       <VBox fx:id="vboxMessage" alignment="CENTER" stylesheets="@Pizza.css">
+           <children>
+               <Label stylesheets="@Pizza.css" text="User 3-10 Characters" textFill="#00e9ff" />
+               <Label stylesheets="@Pizza.css" text="Alphanumeric Only" textFill="#00e9ff" />
+           </children>
+       </VBox>
+       <Button fx:id="btnLogin" mnemonicParsing="false" onAction="#onLoginClicked" stylesheets="@Pizza.css" text="Login" />
+   </children>
+</VBox>
